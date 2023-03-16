@@ -9,6 +9,9 @@ const {
 const {protect, authorize} = require('../middleware/auth');
 
 const router = express.Router();
+const appointmentRouter = require('./appointments');
+
+router.use('/:hospitalId/appointments', appointmentRouter);
 
 router
   .route('/')
