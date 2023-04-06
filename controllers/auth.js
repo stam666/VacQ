@@ -16,6 +16,12 @@ const sendTokenResponse = (user, statusCode, res) => {
 
   res.status(statusCode).cookie('token', token, options).json({
     sucess: true,
+    //add for frontend
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+    //end for frontend
+
     token,
   });
 };
@@ -68,7 +74,5 @@ exports.login = async (req, res, next) => {
 
 exports.getMe = async (req, res, next) => {
   const user = await User.findById(req.user.id);
-  res
-    .status(200)
-    .json({success: true, data: user});
+  res.status(200).json({success: true, data: user});
 };
