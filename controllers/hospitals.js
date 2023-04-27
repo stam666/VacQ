@@ -81,7 +81,7 @@ exports.getHospital = async (req, res, next) => {
 exports.createHospital = async (req, res, next) => {
   try {
     const hospital = await Hospital.create(req.body);
-    res.status(200).json({success: true, data: hospital});
+    res.status(201).json({success: true, data: hospital});
   } catch (err) {
     console.log(err);
   }
